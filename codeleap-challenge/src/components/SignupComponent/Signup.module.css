@@ -1,0 +1,54 @@
+.signup h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.signup form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.signup form div label {
+    font-size: 16px;
+}
+
+.signup form div input {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    border: solid 1px #777;
+    font-size: 14px;
+}
+
+.signupbtn {
+    background: #7695EC;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px;
+    width: 110px;
+    float: right;
+    border: solid 1px #7695EC;
+}
+.signupbtnDisabled {
+    background: #6666;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px;
+    width: 110px;
+    float: right;
+}
+.signupbtn:hover {
+    background: transparent;
+    color: #7695EC;
+}
+
+.signupbtn:active {
+    background: #a1b5ed;
+    color: #fff;
+}

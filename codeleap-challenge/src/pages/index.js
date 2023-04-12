@@ -1,12 +1,22 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import { useAppSelector } from '@/components/redux/store';
+import Modal from '@/components/Modal';
+import Signup from '@/components/SignupComponent';
+import Main from './Main';
 
 const inter = Inter({ subsets: ['latin'] });
 
 
 export default function Home() {
   const { user } = useAppSelector(state => state.user);
+  const [logged, setLogged] = useState(!!user.username);
+  const [isModalOpen, setIsModalOpen] = useState(logged);
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+  }
 
   return (
     <>
@@ -16,9 +26,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        {!!user.username ? <h1>I'm logged in.</h1> : <h1>Login modal.</h1>}
-        <h1>Hello world!</h1>
+      <main className={inter.className}>
+        {!!user.username ? <Main /> : <h1>Login</h1>}
+        {/* <Modal isOpen={logged} onClose={handleClose}>
+          <Signup />
+        </Modal> */}
       </main>
     </>
   )
