@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     FLUSH,
     PAUSE,
@@ -8,11 +8,11 @@ import {
     persistStore,
     PURGE,
     REGISTER,
-    REHYDRATE
+    REHYDRATE,
 } from 'redux-persist';
-import { combineReducers } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { userSlice } from "./userSlice";
+import { combineReducers } from 'redux';
+import storage from 'redux-persist/lib/storage'
+import userSlice from './userSlice';
 
 const rootReducer = combineReducers({
     user: userSlice,
@@ -28,16 +28,16 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => {
+    middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             immutableCheck: { warnAfter: 128 },
             serializableCheck: {
-                ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
                 warnAfter: 128,
-            }
-        })
-    }
+            },
+        }),
 });
+
 
 export const persistor = persistStore(store);
 
