@@ -1,0 +1,48 @@
+.container {
+    width: '100%';
+    background: 'white';
+    border-radius: 16px
+  }
+  .title {
+    font-size: 22px
+  }
+  
+  .contentActions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+  
+  .contentActions button {
+    padding: 6px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+  
+  .cancelbtn {
+    border: 1px solid #999;
+    background-color: white;
+  }
+  
+  .cancelbtn:hover {
+  background-color: #eee;
+  }
+  
+  .cancelbtn:active {
+    background-color: #dbdbdb;
+  }
+  
+  .deletebtn {
+    border: none;
+    background-color: #FF5151;
+    color: white;
+  }
+  
+  .deletebtn:hover {
+    background-color: #ff7b7b;
+  }
+  
+  .deletebtn:active {
+    background-color: #ef4040;
+  }

@@ -41,7 +41,7 @@ export default function Main() {
 
     const handleLogout = () => {
         dispatch(logout())
-    };
+    }
 
     // add Loading component here
 

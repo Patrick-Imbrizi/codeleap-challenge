@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function Home() {
   const { user } = useAppSelector(state => state.user);
 
-
+  console.log(user)
   return (
     <>
       <Head>
@@ -22,10 +22,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={inter.className}>
-        {!!user.username ? <Main /> : <h1>Login</h1>}
-        {/* <Modal isOpen={logged} onClose={handleClose}>
-          <Signup />
-        </Modal> */}
+        {
+          !!user.username
+            ? <Main />
+            :
+            <Modal isOpen={true} onClose={(e) => console.log(e)}>
+              <Signup />
+            </Modal>
+        }
       </main>
     </>
   )

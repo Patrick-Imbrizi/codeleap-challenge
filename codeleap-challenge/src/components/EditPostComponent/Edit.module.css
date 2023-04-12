@@ -1,0 +1,75 @@
+.container {
+    width: '100%';
+    background: 'white';
+    border-radius: 16px
+  }
+
+.title {
+    font-size: 22px
+  }
+  
+.container form {
+    margin-top: 24px;
+}
+
+.container form div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
+
+.titleEdit {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    border: solid 1px #777;
+    font-size: 14px;
+}
+
+.content {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    border: solid 1px #777;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.contentActions {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.contentActions button {
+    padding: 6px 24px;
+    border-radius: 8px;
+}
+
+.savebtn {
+    background: #47B960;
+    color: #fff;
+    font-size: 16px;
+    border: solid 1px #47B960;
+    cursor: pointer
+}
+
+.savebtn:hover {
+    background: transparent;
+    color: #47B960;
+}
+
+.cancelbtn {
+    border: 1px solid #999;
+    background-color: white;
+    font-size: 16px;
+  }
+  
+  .cancelbtn:hover {
+  background-color: #eee;
+  }
+  
+  .cancelbtn:active {
+    background-color: #dbdbdb;
+  }
