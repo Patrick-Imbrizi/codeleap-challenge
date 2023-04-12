@@ -1,0 +1,42 @@
+.container {
+    border: solid 1px #999;
+    border-radius: 16px;
+    margin: 24px;
+    overflow: hidden;
+}
+
+.heading {
+    color: #fff;
+    background-color: #7695EC;
+    justify-content: space-between;
+    display: flex;
+    padding: 24px;
+    align-items: center;
+}
+
+.heading p {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.icon {
+    margin-left: 8px;
+    background: transparent;
+    border: none;
+}
+
+.content {
+    padding: 24px;
+}
+
+.label {
+    width: full;
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    margin-bottom: 16px;
+}
+
+.actionIcons {
+  cursor: pointer
+}

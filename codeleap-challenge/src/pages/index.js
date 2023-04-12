@@ -11,12 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const { user } = useAppSelector(state => state.user);
-  const [logged, setLogged] = useState(!!user.username);
-  const [isModalOpen, setIsModalOpen] = useState(logged);
 
-  const handleClose = () => {
-    setIsModalOpen(false);
-  }
 
   return (
     <>

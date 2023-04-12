@@ -4,14 +4,16 @@ import { AiOutlineUserSwitch } from 'react-icons/ai';
 import { useAppDispatch, useAppSelector } from '@/components/redux/store';
 import { logout } from '@/components/redux/userSlice';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { createPost } from '@/services/careers';
+import { createPost, getPost } from '@/services/careers';
 
 import styles from '@/styles/Main.module.css';
+import Post from '@/components/PostComponent';
 
-function Main() {
+export default function Main() {
     const dispatch = useAppDispatch();
     const { user } = useAppSelector(state => state.user);
     const queryClient = useQueryClient();
+    const { isLoading, isError, data: posts, error } = useQuery('careers', getPost);
 
     const mutation = useMutation(createPost, {
         onSuccess: () => {
@@ -43,13 +45,12 @@ function Main() {
 
     // add Loading component here
 
-    // if (isLoading) {
-    //     return <Loading />
-    // }
-
-    // if (isError) {
-    //     return <span>Error: {error.message}</span>
-    // }
+    if (isLoading) {
+        return <span>Loading...</span>
+    }
+    if (isError) {
+        return <span>Error: {error.message}</span>;
+    }
 
     return (
         <>
@@ -93,13 +94,13 @@ function Main() {
                         {mutation.isLoading ? 'Wait...' : 'Create'}
                     </button>
                 </form>
-                {/* Render post list here
-                <div>
-
-                </div> */}
+            </div>
+            <div>
+                {posts.data.results.length && posts.data.results.map((post, index) => (
+                    <Post id={post.id} title={post.title} content={post.content} username={post.username} datetime={post.created_datetime} key={index} />
+                ))}
             </div>
         </>
     )
 }
 
-export default Main;
