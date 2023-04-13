@@ -83,7 +83,7 @@ const Post = ({ title, username, content, id, datetime }) => {
                 <div className={styles.content}>
                     <div className={styles.label}>
                         <p>@{username}</p>
-                        <p>{datetime}</p>
+                        <ReactTimeAgo date={datetime} />
                     </div>
                     <div className={styles.text}>
                         <p>
