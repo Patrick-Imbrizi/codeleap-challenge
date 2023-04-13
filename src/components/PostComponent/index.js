@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import Modal from '../Modal';
 import RemovePostComponent from '../RemovePostComponent';
 import EditPostComponent from '../EditPostComponent';
+import { AiOutlineDelete, AiOutlineForm } from 'react-icons/ai';
 
 const Post = ({ title, username, content, id, datetime }) => {
     const { user } = useAppSelector(state => state.user);
@@ -69,13 +70,13 @@ const Post = ({ title, username, content, id, datetime }) => {
                                 onClick={handleOpenModal}
                                 className={styles.icon}
                             >
-                                <Image src={del} width={32} alt="Delete post" />
+                                <AiOutlineDelete size={24} alt="Delete post" />
                             </button>
                             <button
                                 onClick={handleEditOpenModal}
                                 className={styles.icon}
                             >
-                                <Image src={edit} width={32} alt="Edit post" />
+                                <AiOutlineForm size={24} alt="Edit post" />
                             </button>
                         </div>
                     )}
