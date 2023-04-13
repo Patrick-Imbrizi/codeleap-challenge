@@ -5,6 +5,8 @@ import { useAppSelector } from '@/components/redux/store';
 import Modal from '@/components/Modal';
 import Signup from '@/components/SignupComponent';
 import Main from './Main';
+import loading from '@/../../public/assets/loading.json';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const inter = Inter({ subsets: ['latin'] });
 
