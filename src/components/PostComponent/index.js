@@ -12,6 +12,7 @@ import Modal from '../Modal';
 import RemovePostComponent from '../RemovePostComponent';
 import EditPostComponent from '../EditPostComponent';
 import { AiOutlineDelete, AiOutlineForm } from 'react-icons/ai';
+import PostSkeleton from '../SkeletonComponent/skeleton';
 
 const Post = ({ title, username, content, id, datetime }) => {
     const { user } = useAppSelector(state => state.user);
@@ -60,46 +61,50 @@ const Post = ({ title, username, content, id, datetime }) => {
     }, [isModalOpen, isEditModalOpen]);
 
     return (
-        <>
-            <div className={styles.container}>
-                <div className={styles.heading}>
-                    <p>{title}</p>
-                    {handleCanAction() && (
-                        <div>
-                            <button
-                                onClick={handleOpenModal}
-                                className={styles.icon}
-                            >
-                                <AiOutlineDelete size={24} alt="Delete post" />
-                            </button>
-                            <button
-                                onClick={handleEditOpenModal}
-                                className={styles.icon}
-                            >
-                                <AiOutlineForm size={24} alt="Edit post" />
-                            </button>
+        <div className={styles.column}>
+            {mutation.isLoading
+                ? (<PostSkeleton />)
+                : (
+                    <div className={styles.container}>
+                        <div className={styles.heading}>
+                            <p>{title}</p>
+                            {handleCanAction() && (
+                                <div>
+                                    <button
+                                        onClick={handleOpenModal}
+                                        className={styles.icon}
+                                    >
+                                        <AiOutlineDelete size={24} alt="Delete post" />
+                                    </button>
+                                    <button
+                                        onClick={handleEditOpenModal}
+                                        className={styles.icon}
+                                    >
+                                        <AiOutlineForm size={24} alt="Edit post" />
+                                    </button>
+                                </div>
+                            )}
                         </div>
-                    )}
-                </div>
-                <div className={styles.content}>
-                    <div className={styles.label}>
-                        <p>@{username}</p>
-                        <ReactTimeAgo date={datetime} />
+                        <div className={styles.content}>
+                            <div className={styles.label}>
+                                <p>@{username}</p>
+                                <ReactTimeAgo date={datetime} />
+                            </div>
+                            <div className={styles.text}>
+                                <p>
+                                    {content}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.text}>
-                        <p>
-                            {content}
-                        </p>
-                    </div>
-                </div>
-            </div>
+                )}
             <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
                 <RemovePostComponent onClose={handleCloseModal} onRemovePost={() => mutation.mutate(id)} />
             </Modal>
             <Modal isOpen={isEditModalOpen} onClose={handleEditCloseModal}>
                 <EditPostComponent onClose={handleEditCloseModal} postId={id} data={{ title, username, content, id, datetime }} />
             </Modal>
-        </>
+        </div>
     )
 }
 

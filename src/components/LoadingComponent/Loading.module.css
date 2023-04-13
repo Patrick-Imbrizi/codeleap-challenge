@@ -10,7 +10,8 @@
 }
 
 
-/* Finish stylizing loading component */
-/* .loading {
-    
-} */
+
+.loading {
+    margin: auto;
+    max-width: 80px;
+} 

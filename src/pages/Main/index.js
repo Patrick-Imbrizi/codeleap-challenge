@@ -8,6 +8,7 @@ import { createPost, getPost } from '@/services/careers';
 
 import styles from '@/styles/Main.module.css';
 import Post from '@/components/PostComponent';
+import Loading from '@/components/LoadingComponent';
 
 export default function Main() {
     const dispatch = useAppDispatch();
@@ -17,7 +18,7 @@ export default function Main() {
 
     const mutation = useMutation(createPost, {
         onSuccess: () => {
-            queryClient.invalidateQueries('carrers')
+            queryClient.invalidateQueries('careers')
         }
     });
 
@@ -43,10 +44,8 @@ export default function Main() {
         dispatch(logout())
     }
 
-    // add Loading component here
-
     if (isLoading) {
-        return <span>Loading...</span>
+        return <Loading />
     }
     if (isError) {
         return <span>Error: {error.message}</span>;

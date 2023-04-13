@@ -76,7 +76,7 @@ function EditPostComponent({ onClose, postId, data }) {
                         </button>
                         <button
                             type='submit'
-                            className={styles.savebtn}
+                            className={titleWatch || contentWatch ? styles.savebtn : styles.savebtnDisabled}
                             disabled={!titleWatch || !contentWatch}
                         >
                             Save
