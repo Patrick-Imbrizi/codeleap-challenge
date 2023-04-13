@@ -5,10 +5,9 @@ import { useAppDispatch, useAppSelector } from '@/components/redux/store';
 import { logout } from '@/components/redux/userSlice';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { createPost, getPost } from '@/services/careers';
-
 import styles from '@/styles/Main.module.css';
 import Post from '@/components/PostComponent';
-import Loading from '@/components/LoadingComponent';
+import LoadingComponent from '@/components/LoadingComponent';
 
 export default function Main() {
     const dispatch = useAppDispatch();
@@ -45,7 +44,7 @@ export default function Main() {
     }
 
     if (isLoading) {
-        return <Loading />
+        return <LoadingComponent />
     }
     if (isError) {
         return <span>Error: {error.message}</span>;

@@ -3,7 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import loading from '@/../../public/assets/loading.json';
 import styles from './Loading.module.css';
 
-const Loading = () => {
+const LoadingComponent = () => {
     return (
         <div className={styles.overlay}>
             <Player
@@ -16,4 +16,4 @@ const Loading = () => {
     )
 }
 
-export default Loading;
+export default LoadingComponent;
